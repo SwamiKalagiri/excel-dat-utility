@@ -1,1 +1,3 @@
- $field1     $field2
+ #foreach ($record in $records)
+     $record.name   $record.type
+ #end

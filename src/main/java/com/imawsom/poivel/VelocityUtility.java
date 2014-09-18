@@ -1,10 +1,13 @@
 package com.imawsom.poivel;
 
+import com.imawsom.poivel.beans.Record;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 
 import java.io.FileWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VelocityUtility {
     public static void main( String args[] )
@@ -20,11 +23,20 @@ public class VelocityUtility {
             return;
         }
         /* lets make a Context and put data into it */
+        List<Record> records = new ArrayList<Record>();
+
+        Record recordOne = new Record();
+        recordOne.setName("crazy");
+        recordOne.setType("frog");
+        records.add(recordOne);
+
+        Record recordTwo = new Record();
+        recordTwo.setName("cool");
+        recordTwo.setType("turtle");
+        records.add(recordTwo);
 
         VelocityContext context = new VelocityContext();
-
-        context.put("field1", "Record Number");
-        context.put("field2", "Record Type");
+         context.put("records", records);
 
         /* lets render a template */
          FileWriter fw = null;
