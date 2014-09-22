@@ -1,3 +1,2 @@
- #foreach ($record in $records)
-     $record.name   $record.type
- #end
+#macro(pad $string $width) ${formatter.pad($string, $width)}#end
+#foreach($record in $records)#pad($record.name,4)   #pad($record.type, 5) #foreach ($repeatableFields in $record.repeatableFieldsList)  $repeatableFields.field1  $repeatableFields.field2 $repeatableFields.field3 #end$newline#end
